@@ -188,6 +188,9 @@
         
         
         
+        <div style="margin: 10px 0; color: #888;">
+
+            </div>
         
         
         
@@ -198,8 +201,9 @@
         
         
         
-        
-        
+        <div style="margin: 10px 0; color: #888;">
+
+            </div>
         
         
         
@@ -210,8 +214,22 @@
         
         
         
-        . 
+        . <div style="margin: 10px 0; color: #888;">
+
+            </div>
         
+        
+        
+        <div style="margin: 10px 0; color: #888;">
+
+            </div>
+            
+            
+            
+            
+            <div style="margin: 10px 0; color: #888;">
+
+            </div>
         
         
         <button onclick="showAdminPanel()">تسجيل الدخول الاداره 🇵🇸</button>
@@ -237,13 +255,64 @@
  🇾🇪 967, 🇪🇬 20،  🇸🇦 967
             </div>
             <select id="course">
+            	<div style="margin: 10px 0; color: #888;">
+الكورسات المتاحه 🇵🇸
+            </div>
                 <!-- الكورسات سيتم تحميلها من التخزين المحلي -->
             </select>
-            <textarea id="notes" placeholder="ملاحظات" rows="4"></textarea>
+            <textarea id="notes" placeholder="اسم الكورس" rows="4"></textarea>
+            <div style="margin: 10px 0; color: #908;">
+ كورس جميع لغات البرمجه / السعر 300 🇵🇸
+ <div style="margin: 10px 0; color: #908;">
+ كورس تعليم لغه بايثون / السعر 190 🇵🇸
+            </div>
+<div style="margin: 10px 0; color: #908;">
+كورس تعليم شحن الالعاب المجاني /السعر 250 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+ كورس تعليم عمل برامج هكر /السعر 350 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس تعليم سحب الصور والملفات من اجهزه الضحيه /السعر 400 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس تعليم اساسيات البرمجه /السعر 90 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس اسبام استخراج فيزات اتشارج حقيقه /السعر 195 🇵🇸
+            </div>
+ 
+<div style="margin: 10px 0; color: #908;">
+ملحوظه طرق الدفع ده بالجنيه المصري لو انت خارج مصر اسأل عن اسعار دولتك  متاح جميع طرق الدفع
+<a href="https://t.me/Almoz3j1" class="chat-button" target="_blank">من هنا اسال علي اسعار دولتك </a>
+            </div>
+ 
+
+
+
+            </div>
+            
             <button onclick="registerClient()">تسجيل</button>
         </div>
 
         <!-- لوحة الإدارة -->
+        
+       
+        <div style="margin: 10px 0; color: #888;">
+
+
+
+
+
+            </div>
+            
+            
+            
+            <div style="margin: 10px 0; color: #888;">
+
+            </div>
+        
+        
         <div id="admin-panel" class="form-container hidden full-screen">
             <button class="logout-button" onclick="logout()">تسجيل الخروج</button>
             <button class="back-button" onclick="goBack()">رجوع</button>
@@ -260,6 +329,38 @@
                     </tr>
                 </thead>
                 <tbody id="client-list">
+                	
+                	<div style="margin: 10px 0; color: #888;">
+الكورسات بالاسعار للوكلاء
+            </div>
+        
+        
+                    <div style="margin: 10px 0; color: #908;">
+ كورس جميع لغات البرمجه / السعر 300 🇵🇸
+ <div style="margin: 10px 0; color: #908;">
+ كورس تعليم لغه بايثون / السعر 190 🇵🇸
+            </div>
+<div style="margin: 10px 0; color: #908;">
+كورس تعليم شحن الالعاب المجاني /السعر 250 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+ كورس تعليم عمل برامج هكر /السعر 350 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس تعليم سحب الصور والملفات من اجهزه الضحيه /السعر 400 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس تعليم اساسيات البرمجه /السعر 90 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #908;">
+كورس اسبام استخراج فيزات اتشارج حقيقه /السعر 195 🇵🇸
+            </div>
+            <div style="margin: 10px 0; color: #888;">
+
+            </div>
+            <div style="margin: 10px 0; color: #888;">
+
+            </div>
                     <!-- بيانات العملاء ستظهر هنا -->
                 </tbody>
             </table>
@@ -270,13 +371,15 @@
             <select id="new-course">
                 <!-- الكورسات سيتم تحميلها من التخزين المحلي -->
             </select>
-            <textarea id="new-notes" placeholder="ملاحظات" rows="4"></textarea>
+            <textarea id="new-notes" placeholder="متاح جميع الكورسات اكتب عايز كورس" rows="4"></textarea>
             <button onclick="addClient()">إضافة عميل</button>
             <h3>تعديل الكورسات</h3>
-            <input type="text" id="course-name" placeholder="اسم الكورس" required>
+            <input type="text" id="course-name" placeholder="اكتب اسم الكورس والسعر " required>
             <input type="number" id="course-price" placeholder="سعر الكورس" required>
             <button onclick="updateCourse()">تحديث الكورس</button>
+            
         </div>
+        
     </div>
 
     <footer>
@@ -293,7 +396,6 @@
         function loadCourses() {
             const courseSelects = document.querySelectorAll('#course, #new-course');
             courseSelects.forEach(select => {
-                select.innerHTML = '<option value="">اختر الكورس</option>';
                 courses.forEach(course => {
                     select.innerHTML += `<option value="${course.name}">${course.name} - ${course.price}</option>`;
                 });

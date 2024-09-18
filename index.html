@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع التسجيل بالكورسات البرمجه 🇵🇸</title>
+    <title>🇵🇸موقع التسجيل بالكورسات البرمجه 🇵🇸 </title>
     <div style="margin: 10px 0; color: #988;">
     المزعج.       الحاكم.    ❤ 
             </div>
@@ -170,7 +170,7 @@
     <!-- الصفحة الرئيسية -->
     <div id="home-panel" class="home-container hidden">
         <h2>اختر ما تريد القيام به</h2>
-        <button onclick="showClientPanel()">التسجيل في الكورس من هنا 🇵🇸</button>
+        <button onclick="showClientPanel()">🇵🇸لالتسجيل في الكورس من هنا 🇵🇸</button>
         
         
         <div style="margin: 10px 0; color: #888;">
@@ -248,6 +248,12 @@
             <input type="text" id="first-name" placeholder="الاسم الأول" required>
             <input type="text" id="last-name" placeholder="الاسم الثاني" required>
             <input type="text" id="phone" placeholder="رقم الهاتف" required>
+            	div class="form-group">
+                <label for="course">اختيار الكورس</label>
+                <select id="course">
+                    <option value="كورس مبتدئ">كورس مبتدئ</option>
+                    <option value="كورس متقدم">كورس متقدم</option>
+                </select>
             	<div style="margin: 10px 0; color: #888;">
  ادخل رقم واتساب برمز الدول مثال رمز دوله مصر 20 بدون(+) 
  رموز الدول 
@@ -368,7 +374,9 @@
             <input type="text" id="new-first-name" placeholder="الاسم الأول" required>
             <input type="text" id="new-last-name" placeholder="الاسم الثاني" required>
             <input type="text" id="new-phone" placeholder="رقم الهاتف" required>
-            <select id="new-course">
+            <select id="new-course"> <div style="margin: 10px 0; color: #888;">
+
+            </div>
                 <!-- الكورسات سيتم تحميلها من التخزين المحلي -->
             </select>
             <textarea id="new-notes" placeholder="متاح جميع الكورسات اكتب عايز كورس" rows="4"></textarea>
@@ -428,21 +436,22 @@
         }
 
         function registerClient() {
-            const firstName = document.getElementById('first-name').value;
-            const lastName = document.getElementById('last-name').value;
-            const phone = document.getElementById('phone').value;
-            const course = document.getElementById('course').value;
-            const notes = document.getElementById('notes').value;
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const phone = document.getElementById('phone').value;
+    const course = document.getElementById('course').value;
+    const notes = document.getElementById('notes').value;
 
-            if (firstName && lastName && phone && course) {
-                clients.push({ firstName, lastName, phone, course, notes });
-                localStorage.setItem('clients', JSON.stringify(clients));
-                alert('تم تسجيلك في أقوى كورس برمجة، سيتم التواصل معك عبر الواتساب');
-                document.getElementById('client-panel').reset();
-            } else {
-                alert('يرجى ملء جميع الحقول');
-            }
-        }
+    if (firstName && lastName && phone && course) {
+        // تخزين بيانات العميل في localStorage
+        clients.push({ firstName, lastName, phone, course, notes });
+        localStorage.setItem('clients', JSON.stringify(clients));  // حفظ البيانات
+        
+        alert('تم التسجيل بنجاح');
+    } else {
+        alert('يرجى ملء جميع الحقول');
+    }
+}
 
         function addClient() {
             const firstName = document.getElementById('new-first-name').value;
@@ -466,25 +475,33 @@
         }
 
         function updateAdminTable() {
-            const clientList = document.getElementById('client-list');
-            clientList.innerHTML = '';
-            clients.forEach((client, index) => {
-                clientList.innerHTML += `
-                    <tr>
-                        <td>${client.firstName}</td>
-                        <td>${client.lastName}</td>
-                        <td>${client.phone}</td>
-                        <td>${client.course}</td>
-                        <td>${client.notes}</td>
-                        <td>
-                        	<a href="https://api.whatsapp.com/send?phone=+${client.phone}" class="chat-button" target="_blank">شات</a>
-                            <button onclick="editClient(${index})" class="edit">تعديل</button>
-                            <button onclick="deleteClient(${index})">حذف</button>
-                        </td>
-                    </tr>
-                `;
-            });
-        }
+    const clientList = document.getElementById('client-list');
+    clientList.innerHTML = '';
+    
+    // تحميل البيانات المخزنة
+    const storedClients = JSON.parse(localStorage.getItem('clients')) || [];
+    clients = storedClients;
+    
+    clients.forEach((client, index) => {
+        clientList.innerHTML += `
+            <tr>
+                <td>${client.firstName}</td>
+                <td>${client.lastName}</td>
+                <td>${client.phone}</td>
+                <td>${client.course}</td>
+                <td>${client.notes}</td>
+                <td>
+                	<div style="margin: 10px 0; color: #888;">
+
+            </div>
+                    <button onclick="deleteClient(${index})">حذف</button>
+                    
+                </td>
+            </tr>
+        `;
+    });
+}
+
 
         function editClient(index) {
             const client = clients[index];
@@ -499,10 +516,12 @@
         }
 
         function deleteClient(index) {
-            clients.splice(index, 1);
-            localStorage.setItem('clients', JSON.stringify(clients));
-            updateAdminTable();
-        }
+    clients.splice(index, 1);  // إزالة العميل من القائمة
+    localStorage.setItem('clients', JSON.stringify(clients));  // تحديث البيانات المخزنة
+    updateAdminTable();  // إعادة تحديث الجدول
+}
+
+
 
         function updateCourse() {
             const courseName = document.getElementById('course-name').value;

